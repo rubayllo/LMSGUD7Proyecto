@@ -1,0 +1,48 @@
+<div class="container-xl">
+
+  <h3 class="text-center my-5"> FORMULARIO PLANTILLA </h3>
+
+  <div class="container-sm my-5 p-4 border border-dark rounded" style="width: 22rem;">
+    <div class="input-group mw-5 mb-3">
+      <input type="text" #nombre class="form-control border border-dark" placeholder="Nombre" required>
+    </div>
+    <div class="input-group mb-3">
+      <input type="text" #ap1 class="form-control border border-dark" placeholder="Apellido 1" required>
+    </div>
+    <div class="input-group mb-3">
+      <input type="text" #ap2 class="form-control border border-dark" placeholder="Apellido 2" required>
+    </div>
+    <div class="input-group mb-3">
+      <input type="number" #numero class="form-control border border-dark" placeholder="Telefono" required>
+    </div>
+
+    <div class="">
+      <button id="btn_todo_form" class="btn btn-danger col-12"
+        (click)="addAlumno(nombre.value, ap1.value, ap2.value, numero.valueAsNumber); nombre.value=''; ap1.value=''; ap2.value=''; numero.value='' ">Nuevo</button>
+    </div>
+  </div>
+
+  <div>
+    <table class="table">
+      <thead>
+        <tr class="text-start">
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido 1</th>
+          <th scope="col">Apellido 2</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Accion</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr class="align-middle" *ngFor="let alumno of alumnos, index as posicion">
+          <td>{{alumno.nombre}}</td>
+          <td>{{alumno.apellido1}}</td>
+          <td>{{alumno.apellido2}}</td>
+          <td>{{alumno.tfno}}</td>
+          <td> <button class="btn btn-danger" (click)="borrar(posicion)">Borrar</button> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
